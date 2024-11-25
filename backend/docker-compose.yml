@@ -1,0 +1,20 @@
+services:
+  laravel:
+    build: ./
+    volumes:
+      - .:/backend
+    ports:
+      - 8000:8000
+
+  mysql:
+    image: mysql
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_DATABASE=dev
+      - MYSQL_ROOT_PASSWORD=password
+
+volumes:
+  mysql:
